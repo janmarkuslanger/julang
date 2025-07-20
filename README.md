@@ -1,2 +1,2 @@
 # julang
-Programming language written in go
+Programming language written in go for learning 
