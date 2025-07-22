@@ -8,11 +8,25 @@ import (
 )
 
 func TestIsDigit(t *testing.T) {
-	assert.Equal(t, utils.IsDigit('a'), false)
-	assert.Equal(t, utils.IsDigit('A'), false)
-	assert.Equal(t, utils.IsDigit('N'), false)
-	assert.Equal(t, utils.IsDigit('Z'), false)
-	assert.Equal(t, utils.IsDigit('0'), true)
-	assert.Equal(t, utils.IsDigit('1'), true)
-	assert.Equal(t, utils.IsDigit('9'), true)
+	cases := []struct {
+		input    byte
+		expected bool
+		name     string
+	}{
+		{'a', false, "lowercase letter"},
+		{'A', false, "uppercase letter"},
+		{'N', false, "middle uppercase letter"},
+		{'Z', false, "last uppercase letter"},
+		{'0', true, "first digit"},
+		{'1', true, "middle digit"},
+		{'9', true, "last digit"},
+		{'/', false, "character before '0'"},
+		{':', false, "character after '9'"},
+	}
+
+	for _, tc := range cases {
+		t.Run(tc.name, func(t *testing.T) {
+			assert.Equal(t, utils.IsDigit(tc.input), tc.expected)
+		})
+	}
 }
