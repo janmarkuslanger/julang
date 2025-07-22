@@ -8,7 +8,7 @@ import (
 )
 
 func TestLookupIdent(t *testing.T) {
-	assert.Equal(t, token.LookupIdent("let"), token.TokenType(token.LET))
+	assert.Equal(t, token.LookupIdent("var"), token.TokenType(token.VAR))
 	assert.Equal(t, token.LookupIdent("letsgo"), token.TokenType(token.ID))
-	assert.Equal(t, token.LookupIdent("const"), token.TokenType(token.CONST))
+	assert.Equal(t, token.LookupIdent("const"), token.TokenType(token.ID))
 }

@@ -9,7 +9,7 @@ import (
 )
 
 func TestLetStatementExpressionValue(t *testing.T) {
-	input := "let x = 5;"
+	input := "var x = 5;"
 
 	l := lexer.New(input)
 	p := parser.New(l)
@@ -19,7 +19,7 @@ func TestLetStatementExpressionValue(t *testing.T) {
 		t.Fatalf("expected 1 statement, got %d", len(program.Statements))
 	}
 
-	stmt, ok := program.Statements[0].(*ast.LetStatement)
+	stmt, ok := program.Statements[0].(*ast.VarStatement)
 	if !ok {
 		t.Fatalf("statement not LetStatement, got %T", program.Statements[0])
 	}

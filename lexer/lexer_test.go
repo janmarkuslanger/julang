@@ -21,10 +21,10 @@ func TestNewLexerInitializesCorrectly(t *testing.T) {
 }
 
 func TestNextTokenReturnsCorrectTokens(t *testing.T) {
-	input := "let x = 5;"
+	input := "var x = 5;"
 
 	expected := []token.Token{
-		{Type: token.LET, Literal: "let"},
+		{Type: token.VAR, Literal: "var"},
 		{Type: token.ID, Literal: "x"},
 		{Type: token.ASSIGN, Literal: "="},
 		{Type: token.INT, Literal: "5"},

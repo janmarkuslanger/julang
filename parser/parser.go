@@ -62,15 +62,15 @@ func (p *Parser) parseExpression() ast.Expression {
 
 func (p *Parser) parseStatement() ast.Statement {
 	switch p.tok.Type {
-	case token.LET:
-		return p.parseLetStatement()
+	case token.VAR:
+		return p.parseVarStatement()
 	default:
 		return nil
 	}
 }
 
-func (p *Parser) parseLetStatement() *ast.LetStatement {
-	stmt := &ast.LetStatement{Token: p.tok}
+func (p *Parser) parseVarStatement() *ast.VarStatement {
+	stmt := &ast.VarStatement{Token: p.tok}
 
 	if !p.expectPeek(token.ID) {
 		return nil

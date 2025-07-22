@@ -14,14 +14,12 @@ const (
 	ASSIGN = "="
 	PLUS   = "+"
 	SEMI   = ";"
-	LET    = "LET"
-	CONST  = "CONST"
+	VAR    = "var"
 	EOF    = ""
 )
 
 var keywords = map[string]TokenType{
-	"let":   LET,
-	"const": CONST,
+	"var": VAR,
 }
 
 func LookupIdent(ident string) TokenType {
